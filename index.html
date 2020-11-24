@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uiGradients</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        
+    </div>
+  </body>
+  <script>
+    const cont = document.querySelector(".container");
+    console.log(cont);
+    fetch("./data.json")
+      .then((response) => response.json())
+      .then((data) => {
+          for (i = 0; i < data.length; i++) {
+            var cString = "";
+          for (j = 0; j < data[i].colors.length; j++) {
+              cString += data[i].colors[j];
+            cString += ","; 
+          }
+          cString = cString.substr(0, cString.length - 1);
+          const newGrad = document.createElement("div"), newDiv =document.createElement("div");
+          newGrad.setAttribute("class", "gradient");
+          cont.appendChild(newGrad);
+          const text = cString.replace(",", " ");
+          newDiv.innerHTML = text;
+          newDiv.setAttribute("class", "popup");
+          newGrad.appendChild(newDiv);
+          newGrad.addEventListener("click",function(){newDiv.classList.toggle("show")})
+          newGrad.style.background = "linear-gradient(90deg," + cString + ")";
+        }
+      });
+      
+  </script>
+</html>
