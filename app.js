@@ -6,6 +6,7 @@ text = document.getElementById("text"),
   function getRandomInt(max) {
       return Math.floor(Math.random() * Math.floor(max));
     }
+   
     function newC() {
         fetch("./data.json")
         .then((response) => response.json())
