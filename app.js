@@ -8,7 +8,8 @@ text = document.getElementById("text"),
     }
    
     function newC() {
-        fetch("./data.json")
+        fetch("https://raw.githubusercontent.com/ghosh/uiGradients/master/gradients.json")
+        // fetch("./data.json")
         .then((response) => response.json())
         .then((data) => {
             var cString = "";
