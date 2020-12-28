@@ -92,6 +92,8 @@ document.body.onkeyup = function (e) {
         newC();
     }
 };
+const nextButton = document.getElementById('next');
+nextButton.addEventListener("click", newC)
 newC();
 back.addEventListener("click", getBack);
 
